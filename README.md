@@ -44,14 +44,52 @@ A0 = Y7 + Y5 + Y3 + Y1 <br>
 
 
 ## Program:
+Decoder
+~~~
+module exp08(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+input a,b,c ;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=((~a)&(~b)&(~c));
+assign d1=((~a)&(~b)&c);
+assign d2=((~a)&b&(~c));
+assign d3=((~a)&b&c);
+assign d4=(a&(~b)&(~c));
+assign d5=(a&(~b)&(c));
+assign d6=(a&b&(~c));
+assign d7=(a&b&c);
+endmodule
+~~~
+Encoder
+~~~
+module exp08(y0,y1,y2,y3,y4,y5,y6,y7,a0,a1,a2);
+input y0,y1,y2,y3,y4,y5,y6,y7;
+output a0,a1,a2;
+assign a0=(y7|y5|y3|y1);
+assign a1=(y7|y6|y3|y2);
+assign a2=(y7|y6|y5|y4);
+endmodule
+
 
 
 ## RTL Schematic:
+Decoder
+![decoder](https://github.com/maaplasai7/encoder-decoder/assets/134155273/f57e0ccd-c3da-4a2d-bd4e-787ee98eaa58)
+
+
+Encoder
+![encoder](https://github.com/maaplasai7/encoder-decoder/assets/134155273/d4d430af-fcb5-4fe9-b49a-aff7207436a1)
+
 
 
 
 
 ## Timing Diagram:
+Decoder
+![waveform 08](https://github.com/maaplasai7/encoder-decoder/assets/134155273/98fe8c0d-c4d8-4f93-896d-a2374dc545b4)
+
+Encoder
+![waveform 8](https://github.com/maaplasai7/encoder-decoder/assets/134155273/ca2fd47a-34dd-481f-9b5e-b1ff17b363b1)
+
 
 
 
